@@ -4,7 +4,7 @@
   "description": "Examen modelo - Parte SQL: API de la Distribuidora del Norte (Express + Sequelize/MySQL)",
   "type": "module",
   "scripts": {
-    "dev": "nodemon app.js",
+    "dev": "node --watch app.js",
     "start": "node app.js"
   },
   "dependencies": {
@@ -20,5 +20,17 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxiSoriaGit/sql-practica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxiSoriaGit/sql-practica/issues"
+  },
+  "homepage": "https://github.com/MaxiSoriaGit/sql-practica#readme"
 }
