@@ -1,22 +1,30 @@
 // * ARCHIVO A COMPLETAR
-import { Router } from "express";
-import { register, login, logout, getPerfil } from "../controllers/auth.controller.js";
-import { authMiddleware } from "../middlewares/auth.middleware.js";
-import { validator } from "../middlewares/validator.middleware.js";
-import { registerValidation, loginValidation } from "../middlewares/validations/auth.validation.js";
+import { Router } from 'express';
+import {
+  register,
+  login,
+  logout,
+  getPerfil,
+} from '../controllers/auth.controller.js';
+import { authMiddleware } from '../middlewares/auth.middleware.js';
+import { validator } from '../middlewares/validator.middleware.js';
+import {
+  registerValidation,
+  loginValidation,
+} from '../middlewares/validations/auth.validation.js';
 
 export const authRoutes = Router();
 
 // TODO: 1. Decidir y aplicar los middlewares que correspondan a cada ruta.
 
 // ? Registro de usuario: acceso público.
-authRoutes.post("/auth/register", register);
+authRoutes.post('/auth/register', registerValidation, validator, register);
 
 // ? Inicio de sesión: acceso público.
-authRoutes.post("/auth/login", login);
+authRoutes.post('/auth/login', loginValidation, validator, login);
 
 // ? Cierre de sesión: requiere sesión iniciada.
-authRoutes.post("/auth/logout", logout);
+authRoutes.post('/auth/logout', authMiddleware, logout);
 
 // * Ya implementado
-authRoutes.get("/auth/perfil", authMiddleware, getPerfil);
+authRoutes.get('/auth/perfil', authMiddleware, getPerfil);
